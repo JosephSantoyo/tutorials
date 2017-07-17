@@ -6,12 +6,15 @@ public class Flip{
  
  public static void main(String[] args){
   double bias = 0.5;  // 50% heads, 50% tails
+  int flips = 100;
   boolean ok = true;
-  if(args.length == 1){
+  if(args.length > 1){
    try{
     bias = Double.parseDouble(args[0]);
+    // number of coin flips
+    flips = Integer.parseInt(args[1]);
    }catch(Exception e){
-    System.out.println("command line argument must be a number");
+    System.out.println("command line arguments must be: number, integer");
     ok = false;
    }
   }
@@ -22,13 +25,14 @@ public class Flip{
    
    int num_heads = 0;
    int num_tails = 0;
-   for (int i = 0; i < 100; i++) {
+   for (int i = 0; i < flips; i++) {
      if (r.nextDouble() < bias) { 
        num_heads++;
      } else {
        num_tails++;
      }
    }
+ 
    System.out.print(", " + num_heads + " heads, " + num_tails + " tails.\n");
   }
  }
