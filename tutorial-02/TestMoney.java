@@ -84,7 +84,42 @@ public class TestMoney{
       System.out.println(" fail");
     }
     
-    
+    System.out.print("     Money(int, int).add(int) test : ");
+    money = new Money(100, 0);
+    money.add(1000);
+    actual = money.getMoney();
+    expected = "$110.00";
+    System.out.print("expected \"" + expected + "\"   actual output \"" + actual + "\"");
+    if( actual.equals(expected) ){
+      System.out.println(" pass");
+    }else{
+      System.out.println(" fail");
+    }
+
+    System.out.print("     Money(int, int).add(int) test : ");
+    money = new Money(100, 0);
+    money.add(103);
+    actual = money.getMoney();
+    expected = "$101.03";
+    System.out.print("expected \"" + expected + "\"   actual output \"" + actual + "\"");
+    if( actual.equals(expected) ){
+      System.out.println(" pass");
+    }else{
+      System.out.println(" fail");
+    }
+
+    System.out.print("     Money(int, int).add(int, int) test : ");
+    money = new Money(100, 0);
+    money.add(2, 100);
+    actual = money.getMoney();
+    expected = "$103.00";
+    System.out.print("expected \"" + expected + "\"   actual output \"" + actual + "\"");
+    if( actual.equals(expected) ){
+      System.out.println(" pass");
+    }else{
+      System.out.println(" fail");
+    }
+
     
   }
 }
