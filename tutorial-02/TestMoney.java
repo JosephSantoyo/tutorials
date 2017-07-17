@@ -119,6 +119,46 @@ public class TestMoney{
     }else{
       System.out.println(" fail");
     }
+    
+    // test when we have more money than we are trying to remove
+    System.out.print("     Money(int, int).remove(int) test : ");
+    money = new Money(1, 93);
+    money.remove(93);
+    actual = money.getMoney();
+    expected = "$1.00";
+    System.out.print("expected \"" + expected + "\"   actual output \"" + actual + "\"");
+    if( actual.equals(expected) ){
+      System.out.println(" pass");
+    }else{
+      System.out.println(" fail");
+    }
+    
+    // test when our money is $0.00
+    System.out.print("     Money(int, int).remove(int) test : ");
+    money = new Money(0, 0);
+    money.remove(93);
+    actual = money.getMoney();
+    expected = "$0.00";
+    System.out.print("expected \"" + expected + "\"   actual output \"" + actual + "\"");
+    if( actual.equals(expected) ){
+      System.out.println(" pass");
+    }else{
+      System.out.println(" fail");
+    }
+    
+    // test when we have less money than we are trying to remove
+    System.out.print("     Money(int, int).remove(int) test : ");
+    money = new Money(1, 0);
+    money.remove(101);
+    actual = money.getMoney();
+    expected = "$0.00";
+    System.out.print("expected \"" + expected + "\"   actual output \"" + actual + "\"");
+    if( actual.equals(expected) ){
+      System.out.println(" pass");
+    }else{
+      System.out.println(" fail");
+    }
+
 
     
   }
