@@ -10,7 +10,7 @@ import java.util.Calendar;
 
 public class AnimalApp{
 	/** number of animals in collection */
-	public static final int SIZE = 5;
+	public static final int SIZE = 10;
 
 	/** a collection of names for generating random animals */
 	public static String[] names = {"Fluffy", "Tiger", "Spot", 
@@ -21,7 +21,7 @@ public class AnimalApp{
 		Random rnd = new Random();
 		
 		/* get the current year based on computer's clock */
-	  Calendar now = Calendar.getInstance();   
+	  	Calendar now = Calendar.getInstance();   
 		int year = now.get(Calendar.YEAR);  
 		System.out.println("The year is " + year);
 		
@@ -32,10 +32,17 @@ public class AnimalApp{
 		/* use random names from the `names` array   */
 		/* use random birth years                    */
 		for(int i=0; i<SIZE; i+=1){
-			if(Math.random() < 0.5){
+			double r = Math.random();
+			if(r < 0.33){
 				animals[i] = new Cat( names[rnd.nextInt(names.length)], rnd.nextInt(12) + 2000);
-			}else{
+			}else if (r >= 0.33 && r < 0.66) {
 				animals[i] = new Dog( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
+				animals[i] = new Corgi( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
+				animals[i] = new Chihuahua( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
+			} else {
+				int j = rnd.nextInt(2);
+				boolean wise = j > 0? true : false;
+				animals[i] = new Owl( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000, wise );
 			}
 		}
 	

@@ -36,7 +36,7 @@ public abstract class Animal{
 
 	@return the birth year of this animal
 	*/
-	public int    getBirthyear(){ return this.birthYear; }
+	public int getBirthyear(){ return this.birthYear; }
 
 	/**
 	Initializes an animal with the given name and birth year.
@@ -62,7 +62,9 @@ public abstract class Animal{
 	/* override Object's toString method here */
 	@Override
 	public String toString(){
-		return "empty"; 
+		Calendar now = Calendar.getInstance();
+		int year = now.get(Calendar.YEAR);
+		return "Name: " + this.name + " Age: " + (year - this.birthYear); 
 	}
 
 }
