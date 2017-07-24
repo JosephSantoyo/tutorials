@@ -34,15 +34,28 @@ public class AnimalApp{
 		for(int i=0; i<SIZE; i+=1){
 			double r = Math.random();
 			if(r < 0.33){
-				animals[i] = new Cat( names[rnd.nextInt(names.length)], rnd.nextInt(12) + 2000);
+				//animals[i] = new Cat( names[rnd.nextInt(names.length)], rnd.nextInt(12) + 2000);
+				if (r < 0.5) {
+					animals[i] = new Tabby( names[rnd.nextInt(names.length)], rnd.nextInt(12) + 2000);
+				} else {
+					animals[i] = new Siamese( names[rnd.nextInt(names.length)], rnd.nextInt(12) + 2000);
+				}
 			}else if (r >= 0.33 && r < 0.66) {
-				animals[i] = new Dog( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
-				animals[i] = new Corgi( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
-				animals[i] = new Chihuahua( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
+				//animals[i] = new Dog( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
+				if (r < 0.5) {
+					animals[i] = new Corgi( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
+				} else {
+					animals[i] = new Chihuahua( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000);
+				}
 			} else {
 				int j = rnd.nextInt(2);
 				boolean wise = j > 0? true : false;
-				animals[i] = new Owl( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000, wise );
+				if (r < 0.8) {
+					animals[i] = new Tooty( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000, wise );
+				} else {
+					animals[i] = new Hooty( names[rnd.nextInt(names.length)], rnd.nextInt(14) + 2000, wise );
+				}
+				
 			}
 		}
 	
