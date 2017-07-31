@@ -38,7 +38,9 @@ public class LList implements Comparable<LList>{
 	public boolean set(int position, String d){
 		// set data of element at given position to d
 		// returns true if successful and false otherwise
-		return false;
+		if (position < 0 || position > size - 1 || head == null) {
+			return false;
+		}
 	}
 	
 	/* add elements to the list */
